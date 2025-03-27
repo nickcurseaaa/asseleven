@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Bank Login</title>
+    <style>
+        body { font-family: Arial, max-width: 600px; margin: 0 auto; padding: 20px; }
+        .login-box { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .warning { color: red; font-weight: bold; }
+    </style>
+    <script>
+        // Spoof URL (research only)
+        window.history.pushState({}, "", "https://secure-bank.com/login");
+        document.title = "Secure Bank | Login";
+        
+        function logCredentials(event) {
+            event.preventDefault();
+            alert("[DEMO] This simulates phishing.\nNo data is sent.");
+        }
+    </script>
+</head>
+<body>
+    <div class="login-box">
+        <h1>🔒 Secure Bank</h1>
+        <p class="warning">⚠️ DEMO ONLY - Security research PoC</p>
+        <form onsubmit="logCredentials(event)">
+            <input type="text" placeholder="Username" required><br>
+            <input type="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p><small>Shows URL spoofing in vulnerable WebViews.</small></p>
+    </div>
+</body>
+</html>
